@@ -67,9 +67,6 @@ button{
 }
 
 /*header*/
-.header{
-    /*background-color: red;*/
-}
 
 .header .web-title{
     padding-top: 20px;
@@ -183,6 +180,65 @@ button{
     font-size: 40px;
     font-weight: 700;
 }
+
+/*move section start*/
+.move-section{
+    padding: 80px 0 0;
+}
+
+.move-section .move-item{
+    flex: 0 0 33.33%;
+    max-width: 33.33%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+}
+.move-section .move-item-inner{
+    position: relative;
+    overflow: hidden;
+}
+.move-section .move-item-inner img{
+    width: 100%;
+    display: block;
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
+}
+
+.move-section .move-item-inner:hover img{
+    filter: grayscale(0);
+    transform: scale(1.1); /* 여기를 gif 실행하는 코드로 바꿀 예정*/
+}
+
+.move-section .move-item-inner .overlay{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease;
+}
+
+.move-section .move-item-inner:hover .overlay{
+    background-color: transparent;
+}
+
+.move-section .move-item-inner .overlay h4{
+    color: white;
+    font-size: 20px;
+    margin: 0;
+    text-align: center;
+    transition: all 0.5s ease;
+    text-transform: capitalize;
+}
+
+.move-section .move-item-inner .overlay:hover h4{
+    transform: translateX(20px);
+    opacity: 0;
+}
+
 
 
 

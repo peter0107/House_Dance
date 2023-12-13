@@ -196,17 +196,23 @@ button{
     position: relative;
     overflow: hidden;
 }
+
+.move-section .move-item-inner .move-gif{
+    display: none;
+}
+
 .move-section .move-item-inner img{
     width: 100%;
+    height: 100%;
     display: block;
     filter: grayscale(100%);
     transition: all 0.5s ease;
 }
 
-.move-section .move-item-inner:hover img{
+/*.move-section .move-item-inner:hover img{
     filter: grayscale(0);
-    transform: scale(1.1); /* 여기를 gif 실행하는 코드로 바꿀 예정*/
-}
+    transform: scale(1.1); 
+}*/
 
 .move-section .move-item-inner .overlay{
     position: absolute;

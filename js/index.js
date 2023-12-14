@@ -1,5 +1,7 @@
 //define variable
 const moveItemInners=document.querySelectorAll(".move-item-inner");
+const play_btns=document.querySelectorAll(".play-button")
+
 //making youtube video
 const tag = document.createElement('script');
 tag.src = "https://www.youtube.com/iframe_api";
@@ -69,5 +71,39 @@ moveItemInners.forEach(function(moveItemInner) {
     movePic.style.display="block";
   });
 });
+
+//audio play
+play_btns.forEach(btn=>{
+  btn.addEventListener("click",function(){
+    const btnId=this.id;
+    console.log("btnId:",btnId);
+    const audioId = `${btnId.replace("-play-btn", "-audio")}`;
+    const audio=document.getElementById(audioId);
+
+    if (audio) {
+      // 오디오가 재생 중이면 일시 중지, 아니면 재생
+      if (audio.paused) {
+        playAudio(audio);
+      } else {
+        pauseAudio(audio);
+      }
+    } 
+    else {
+      console.error(`cannot find audio: ${audioId}`);
+    }
+    
+  })
+}
+)
+//audio play
+function playAudio(audio){
+  audio.play();
+}
+//audio pause
+function pauseAudio(audio){
+  audio.pause();
+}
+
+
 
 

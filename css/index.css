@@ -32,6 +32,7 @@ button{
 .row{
     display: flex;
     flex-wrap: wrap;
+    
 }
 
 .align-items-center{
@@ -179,6 +180,22 @@ button{
 .about-section .hash-tag-item h2{
     font-size: 40px;
     font-weight: 700;
+    cursor: pointer;
+    
+}
+
+.about-section .hash-tag-item:hover h2{
+    animation: rainbow 1.5s infinite;
+}
+
+@keyframes rainbow{
+    0% { color: #ff0000; } /* Red */
+    16.666% { color: #ff8000; } /* Orange */
+    33.333% { color: #ffff00; } /* Yellow */
+    50% { color: #80ff00; } /* Lime */
+    66.666% { color: #00ff80; } /* Aqua */
+    83.333% { color: #0080ff; } /* Blue */
+    100% { color: #8000ff; } /* Purple */
 }
 
 /*move section start*/
@@ -208,11 +225,6 @@ button{
     filter: grayscale(100%);
     transition: all 0.5s ease;
 }
-
-/*.move-section .move-item-inner:hover img{
-    filter: grayscale(0);
-    transform: scale(1.1); 
-}*/
 
 .move-section .move-item-inner .overlay{
     position: absolute;
@@ -244,6 +256,27 @@ button{
     transform: translateX(20px);
     opacity: 0;
 }
+/*move-section End*/
+
+/*music-section Start*/
+.music-section{
+    padding: 80px 0 0;
+}
+.music-section p{
+    font-size: 20px;
+}
+.music-section .music-content{
+    padding: 40px 0;
+}
+
+.music-section .music-item button{
+    padding: 60px auto;
+    
+    
+}
+
+/*music-section End*/
+
 
 
 

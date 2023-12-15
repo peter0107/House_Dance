@@ -3,42 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>House</title>
-    <link rel="stylesheet" href="../css/index.css">
+    <title>Junemo House</title>
+    <link rel="stylesheet" href="../static/css/index.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--unicorn for icon-->
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.8/css/line.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 <body>
     <!--Header Start-->
     <header class="header">
-        <div class="container">
-            <div class="row column align-items-center">
-                <div class="web-title">
-                    <a href="index.html"><h1>House</h1></a>
-                </div>
-                <div class="sub-title">
-                    <h4>Street Dance</h4>
-                </div>
-            </div>
-        </div>
+        <nav class="header_nav">
+            <a href="#home" class="nav_logo">House</a>
+            <ul class="nav_items">
+                <li class="nav_item">
+                    <a href="#home" class="nav_link">Home</a>
+                    <a href="#about-section" class="nav_link">About</a>
+                    <a href="#move-section" class="nav_link">Move</a>
+                    <a href="#music-section" class="nav_link">Music</a>
+                </li>
+            </ul>
+            <button class="login_btn" id="form-open">Login</button>
+        </nav>
     </header>
     <!--Header End-->
     <!--Home Section Start-->
-    <section class="home-section">
+    <section class="home-section" id="home">
     
         <div class="container">
             <div class="video_container">
                 <div id="player"></div>
             </div>
-            <div class="row">
-                <div class="nav">
-                    <ul>
-                        <li><a href="#about-section">About</a></li>
-                        <li><a href="#move-section">Move</a></li>
-                        <li><a href="#music-section">Music</a></li>
-                    </ul>
-                </div>
+        </div>
+        <div class="form_container">
+            <i class="uil uil-times form_close"></i>
+            <!--Login Form-->
+            <div class="form login_form">
+                <form action="#">
+                    <h2>Login</h2>
+                    <div class="input_box">
+                        <input type="text" placeholder="Enter your nickname" required>
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="input_box">
+                        <input type="password" placeholder="Enter your password" required>
+                        <i class="uil uil-lock password"></i>
+                        <i class="uil uil-eye-slash pw_hide"></i>
+                    </div>
+                    <button class="login_form_btn">Login Now</button>
+                    <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
+                </form>
             </div>
-            
+
+            <!-- Signup Form -->
+            <div class="form signup_form">
+                <form action="#">
+                    <h2>Signup</h2>
+                    <div class="input_box">
+                        <input type="text" placeholder="Enter your nickname" required>
+                        <i class="uil uil-user"></i>
+                    </div>
+                    <div class="input_box">
+                        <input type="password" placeholder="Create password" required>
+                        <i class="uil uil-lock password"></i>
+                        <i class="uil uil-eye-slash pw_hide"></i>
+                    </div>
+                    <div class="input_box">
+                        <input type="password" placeholder="Confirm password" required>
+                        <i class="uil uil-lock password"></i>
+                        <i class="uil uil-eye-slash pw_hide"></i>
+                    </div>
+                    <button class="login_form_btn">Signup Now</button>
+                    <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
+                </form>
+            </div>
         </div>
         
     
@@ -54,7 +92,7 @@
             <div class="row">
                 <div class="about-img">
                     <div class="img-box">
-                        <img src="../img/House-dance.png" alt="house-dance">
+                        <img src="../static/img/House-dance.png" alt="house-dance">
                     </div>
                 </div>
                 <div class="about-content">
@@ -97,8 +135,8 @@
                 <!--move item start-->
                 <div class="move-item">
                     <div class="move-item-inner">
-                        <img class="move-pic" src="../img/move_resized/iloveimg-resized/loose-leg.jpg" alt="loose-leg">
-                        <img class="move-gif" src="../img/move_gif/Loose-Leg.gif" alt="loose-leg-gif">
+                        <img class="move-pic" src="../static/img/move_resized/iloveimg-resized/loose-leg.jpg" alt="loose-leg">
+                        <img class="move-gif" src="../static/img/move_gif/Loose-Leg.gif" alt="loose-leg-gif">
                         <div class="overlay">
                             <h4>Loose Leg</h4>
                         </div>
@@ -106,8 +144,8 @@
                 </div>
                 <div class="move-item">
                     <div class="move-item-inner">
-                        <img class="move-pic" src="../img/move_resized/iloveimg-resized/heel-toe.jpg" alt="heel-toe">
-                        <img class="move-gif" src="../img/move_gif/Heel-Toe.gif" alt="heel-toe-gif">
+                        <img class="move-pic" src="../static/img/move_resized/iloveimg-resized/heel-toe.jpg" alt="heel-toe">
+                        <img class="move-gif" src="../static/img/move_gif/Heel-Toe.gif" alt="heel-toe-gif">
                         <div class="overlay">
                             <h4>Heel Toe</h4>
                         </div>
@@ -115,8 +153,8 @@
                 </div>
                 <div class="move-item">
                     <div class="move-item-inner">
-                        <img class="move-pic" src="../img/move_resized/iloveimg-resized/pas-de-bourre.jpg" alt="pas-de-bourree">
-                        <img class="move-gif" src="../img/move_gif/Pas-De-Bourree.gif" alt="pas-de-bourree-gif">
+                        <img class="move-pic" src="../static/img/move_resized/iloveimg-resized/pas-de-bourre.jpg" alt="pas-de-bourree">
+                        <img class="move-gif" src="../static/img/move_gif/Pas-De-Bourree.gif" alt="pas-de-bourree-gif">
                         <div class="overlay">
                             <h4>Pas De Bourree</h4>
                         </div>
@@ -124,8 +162,8 @@
                 </div>
                 <div class="move-item">
                     <div class="move-item-inner">
-                        <img class="move-pic" src="../img/move_resized/iloveimg-resized/shuffle.jpg" alt="shuffle">
-                        <img class="move-gif" src="../img/move_gif/Shuffle.gif" alt="shuffle-gif">
+                        <img class="move-pic" src="../static/img/move_resized/iloveimg-resized/shuffle.jpg" alt="shuffle">
+                        <img class="move-gif" src="../static/img/move_gif/Shuffle.gif" alt="shuffle-gif">
                         <div class="overlay">
                             <h4>Shuffle</h4>
                         </div>
@@ -133,8 +171,8 @@
                 </div>
                 <div class="move-item">
                     <div class="move-item-inner">
-                        <img class="move-pic" src="../img/move_resized/iloveimg-resized/swirl.jpg" alt="swirl">
-                        <img class="move-gif" src="../img/move_gif/Swirl.gif" alt="swirl-gif">
+                        <img class="move-pic" src="../static/img/move_resized/iloveimg-resized/swirl.jpg" alt="swirl">
+                        <img class="move-gif" src="../static/img/move_gif/Swirl.gif" alt="swirl-gif">
                         <div class="overlay">
                             <h4>Swirl</h4>
                         </div>
@@ -142,8 +180,8 @@
                 </div>
                 <div class="move-item">
                     <div class="move-item-inner">
-                        <img class="move-pic" src="../img/move_resized/iloveimg-resized/farmer.jpg" alt="farmer">
-                        <img class="move-gif" src="../img/move_gif/Farmer.gif" alt="farmer-gif">
+                        <img class="move-pic" src="../static/img/move_resized/iloveimg-resized/farmer.jpg" alt="farmer">
+                        <img class="move-gif" src="../static/img/move_gif/Farmer.gif" alt="farmer-gif">
                         <div class="overlay">
                             <h4>Farmer</h4>
                         </div>
@@ -177,8 +215,8 @@
                             illo possimus nam ipsa molestias natus, officiis voluptatum repellat error quo quae doloremque maiores
                             vitae
                             minima.</p>
-                        <button class="play-button" id="classic-house-play-btn"><i class='bx bx-play'></i></button>
-                        <audio id="classic-house-audio" src="../audio/Marc Philippe  Dancer in the Dark.mp3"></audio>
+                        <button class="play-button" id="classic-house-play-btn"><i class="uil uil-play-circle play"></i></button>
+                        <audio id="classic-house-audio" src="../static/audio/Marc Philippe  Dancer in the Dark.mp3"></audio>
                     </div>
             
             
@@ -193,8 +231,8 @@
                             accusantium expedita doloribus omnis maiores, ea dolores enim voluptate totam veritatis. Veniam saepe
                             ipsa iure
                             aut.</p>
-                        <button class="play-button" id="modern-house-play-btn"><i class='bx bx-play'></i></button>
-                        <audio id="modern-house-audio" src="../audio/Disclosure x Raye  Waterfall.mp3"></audio>
+                        <button class="play-button" id="modern-house-play-btn"><i class="uil uil-play-circle play"></i></button>
+                        <audio id="modern-house-audio" src="../static/audio/Disclosure x Raye  Waterfall.mp3"></audio>
                     </div>
             
                 </div>
@@ -206,7 +244,8 @@
     </section>
     <!--Music Section End-->
     
-    <script src="../js/index.js"></script>
-    <script src="../js/easy-scroll.js"></script>
+    
+    <script src="../static/js/index.js"></script>
+    <script src="../static/js/easy-scroll.js"></script>
 </body>
 </html>

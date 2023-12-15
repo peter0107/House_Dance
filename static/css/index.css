@@ -1,23 +1,27 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Raleway:wght@300;500;600;900&display=swap');
 body{
     margin: 0;
-    line-height: 1;
-    background-color: #F8B070;
+    padding: 0;
+    line-height: 1.5;
+    background-color: #AE7BC3;
 }
 
 *{
     padding: 0;
     margin: 0;
     max-width: 100%;
-    position: relative;
     box-sizing: border-box;
+    font-family: "Raleway",sans-serif;
+}
+a{
+    text-decoration: none;
 }
 
 body,
 input,
 textarea,
 button{
-    font-family: 'Raleway', sans-serif;
+    
     font-weight: 400;
 }
 
@@ -68,36 +72,111 @@ button{
 }
 
 /*header*/
-
-.header .web-title{
-    padding-top: 20px;
-    padding-bottom: 10px;
+.header{
+    position:fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 80px;
+    width: 100%;
+    
+    z-index: 100;
+    padding: 0 20px;
+    background-color: #F8B070;
+    
+}
+.header_nav{
+    max-width: 80%;
+    width: 100%;
+    
+    margin: 0 auto;
+}
+.header_nav,
+.nav_item{
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.header .web-title a{
-    text-decoration: none;
-    font-size: 20px;
+.nav_logo,
+.nav_link,
+button{
     color: black;
-    text-transform: uppercase;
-    font-weight: 900;
-    letter-spacing: 2px;
-    transition: all 0.5s ease;
-    letter-spacing: 10px;
 }
 
-.header .web-title a:hover{
-    color: #FF9800;
+.nav_item{
+    column-gap: 40px;
+    
+}
+.nav_item a{
+    transition: all 0.5s ease;
+}
+
+.nav_logo{
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.nav_link{
+    font-size: 20px;
+    font-weight: 600;
+    transition: all 0.5s ease;
+}
+
+.nav_link:hover{
+    color:#d9d9d9;
+}
+
+.login_btn{
+    padding: 6px 24px;
+    border: 2px solid black;
+    background: transparent;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.login_btn:active{
+    transform: scale(0.98);
 }
 
 
 
 /*home section start*/
 .home-section{
-    min-height: 100vh;
+    /*min-height: 100vh;*/
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url("../img/bg.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.home-section::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.6);
+    z-index: 100;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.5s ease-out;
+}
+.home-section.show::before{
+    opacity: 1;
+    pointer-events: auto;
 }
 
 .home-section .video_container{
     /*background-color: green;*/
+    padding-top: 100px;
     margin-top: 10px;
     margin-bottom: 10px;
 }
@@ -140,10 +219,117 @@ button{
     font-weight: 600;
     color: black;
     padding: 25px 0;
+    
+}
+
+/*login form*/
+.form_container{
+    position: fixed;
+    max-width: 450px;
+    width: 100%;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(1.2);
+    z-index: 101;
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: rgba(0,0,0,0.1);
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s ease-out;
+}
+.home-section.show .form_container{ 
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%,-50%) scale(1);
+}
+.signup_form{
+    display: none;
+}
+.form_container.active .signup_form{
+    display: block;
+}
+.form_container.active .login_form{
+    display: none;
+}
+
+.form_close{
+    position: absolute;
+    top: 5px;
+    right: 20px;
+    color: #0b0217;
+    font-size: 22px;
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.form_container h2{
+    font-size: 30px;
+    color: #0b0217;
+    text-align: center;
+}
+
+.input_box{
+    position: relative;
+    margin-top: 40px;
+    width: 100%;
+    height: 40px;
+}
+.input_box input{
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 0 30px;
+    font-size: 20px;
+    color: #333;
+    transition: all 0.2s ease;
+    border-bottom: 1.5px solid #aaaaaa;
+}
+.input_box input:focus{
+    border-color: #FF9800;
+}
+.input_box i{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+.input_box i.uil-user,
+.input_box i.password{
+    left: 0;
+    color: #707070;
+    transition: all 0.2s ease;
+}
+.input_box input:focus ~ i.uil-user,
+.input_box input:focus ~ i.password{
+    color: #FF9800;
+}
+.input_box i.pw_hide{
+    right: 0;
+    font-size: 18px;
+    cursor: pointer;
+}
+.form_container .login_form_btn{
+    background: #FF9800;
+    margin-top: 30px;
+    width: 100%;
+    padding: 12px 0;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 600;
+}
+.login_signup{
+    font-size: 18px;
+    text-align: center;
+    margin-top: 15px;
 }
 
 /*about section*/
-
+.about-section{
+    padding: 80px 0 0;
+}
 
 .about-section .about-img{
     flex: 0 0 33.33%;
@@ -271,8 +457,9 @@ button{
 
 .music-section .music-item button{
     padding: 60px auto;
-    
-    
+}
+.play{
+    width: 200px;
 }
 
 /*music-section End*/

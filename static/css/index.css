@@ -50,7 +50,7 @@ button{
 .section-title{
     flex: 0 0 100%;
     max-width: 100%;
-    margin-bottom: 60px;
+    margin-bottom: 2rem;
 }
 .section-title h1{
     display: inline-block;
@@ -86,6 +86,12 @@ button{
     background-color: #F8B070;
     
 }
+.header.fixed{
+	
+	position: fixed;
+}
+
+
 .header_nav{
     max-width: 80%;
     width: 100%;
@@ -129,6 +135,11 @@ button{
     color:#d9d9d9;
 }
 
+.user_nickname{
+    font-size: 20px;
+    font-weight: 600;
+}
+
 .login_btn{
     padding: 6px 24px;
     border: 2px solid black;
@@ -143,7 +154,46 @@ button{
     transform: scale(0.98);
 }
 
+/* side negivation menu button css */
+.nav_item .cancel_btn,
+.header_nav .menu_btn{
+    position: absolute;
+    color: black;
+    font-size: 20px;
+    right: 20px;
+    top: 20px;
+    display: none;
+}
 
+/*header responsive*/
+@media(max-width:768px){
+    .nav_item{
+        position: absolute;
+        left: 100%;
+        top: 0;
+        height: 100vh;
+        max-width: 300px;
+        width: 100%;
+        background: #F8B070;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 60px;
+        transition: all 0.5s ease;
+    }
+    .nav_item.active{
+        left: 0;
+    }
+    .nav_item a{
+        display: block;
+        font-size: 23px;
+        color: black;
+        margin: 10px 0;
+    }
+    .nav_item .cancel_btn,
+    .header_nav .menu_btn{
+        display: block;
+    }
+}
 
 /*home section start*/
 .home-section{
@@ -384,6 +434,19 @@ button{
     100% { color: #8000ff; } /* Purple */
 }
 
+/*about-section responsive*/
+@media(max-width:768px){
+.about-section .row{
+    flex-direction: column;
+}
+.about-section .about-img{
+    max-width: 100%;
+}
+.about-section .about-content{
+    max-width: 100%;
+}
+}
+
 /*move section start*/
 .move-section{
     padding: 80px 0 0;
@@ -455,16 +518,29 @@ button{
     padding: 40px 0;
 }
 
-.music-section .music-item button{
-    padding: 60px auto;
-}
 .play{
-    width: 200px;
+    color: #FF9800;
+    cursor: pointer;
+    font-size: 35px;
+    position: absolute;
+    left: 15%;
+    
 }
 
+.music-item{
+    padding-bottom: 20px;
+    position: relative;
+}
+.music-item h2{
+    font-size: 25px;
+}
+
+/*music-section responsive*/
+@media(max-width:768px){
+    .play{
+        left: 200px;
+    }
+}
 /*music-section End*/
-
-
-
 
 

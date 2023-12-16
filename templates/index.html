@@ -21,9 +21,17 @@
                     <a href="#about-section" class="nav_link">About</a>
                     <a href="#move-section" class="nav_link">Move</a>
                     <a href="#music-section" class="nav_link">Music</a>
+                    <div class="cancel_btn"><i class="uil uil-times"></i></div>
                 </li>
             </ul>
-            <button class="login_btn" id="form-open">Login</button>
+            <div class="menu_btn">
+                <i class="uil uil-bars"></i>
+            </div>
+            {% if user_authenticated %}
+                <span class="user_nickname">{{user_nickname}}</span>
+            {% else %}
+                <button class="login_btn" id="form-open">Login</button>
+            {% endif %}
         </nav>
     </header>
     <!--Header End-->
@@ -39,41 +47,44 @@
             <i class="uil uil-times form_close"></i>
             <!--Login Form-->
             <div class="form login_form">
-                <form action="#">
+                <form class="login_form" action="/login" method="POST">
                     <h2>Login</h2>
                     <div class="input_box">
-                        <input type="text" placeholder="Enter your nickname" required>
+                        <label for="nickname"></label><input type="text" name="nickname" placeholder="Enter your nickname" required>
                         <i class="uil uil-user"></i>
                     </div>
                     <div class="input_box">
-                        <input type="password" placeholder="Enter your password" required>
+                        <label for="password"></label><input type="password" name="password" placeholder="Enter your password" required>
                         <i class="uil uil-lock password"></i>
                         <i class="uil uil-eye-slash pw_hide"></i>
                     </div>
-                    <button class="login_form_btn">Login Now</button>
+                    <button type="submit" class="login_form_btn">Login Now</button>
                     <div class="login_signup">Don't have an account? <a href="#" id="signup">Signup</a></div>
+                    {%with messages=get_flashed_messages()%}
+                    {%if messages %}
+                        <script type="text/javascript">
+                            alert("{{messages[-1]}}");
+                        </script>
+                        {%endif%}
+                    {%endwith%}
                 </form>
             </div>
 
             <!-- Signup Form -->
             <div class="form signup_form">
-                <form action="#">
+                <form class="register_form" action="/register" method="POST">
                     <h2>Signup</h2>
                     <div class="input_box">
-                        <input type="text" placeholder="Enter your nickname" required>
+                        <input type="text" name="nickname" placeholder="Enter your nickname" required>
                         <i class="uil uil-user"></i>
                     </div>
                     <div class="input_box">
-                        <input type="password" placeholder="Create password" required>
+                        <input type="password" name="password" placeholder="Create password" required>
                         <i class="uil uil-lock password"></i>
                         <i class="uil uil-eye-slash pw_hide"></i>
                     </div>
-                    <div class="input_box">
-                        <input type="password" placeholder="Confirm password" required>
-                        <i class="uil uil-lock password"></i>
-                        <i class="uil uil-eye-slash pw_hide"></i>
-                    </div>
-                    <button class="login_form_btn">Signup Now</button>
+                    
+                    <button type="submit" class="login_form_btn">Signup Now</button>
                     <div class="login_signup">Already have an account? <a href="#" id="login">Login</a></div>
                 </form>
             </div>
@@ -196,45 +207,58 @@
     <!--Music Section Start-->
     <section class="music-section" id="music-section">
         <div class="container">
-            <div class="row">
+            <div class="row align-items-center">
                 <div class="section-title">
                     <h1>Music</h1>
                 </div>
-                <p>House music is usually divide into Classic House music and Modern House music.</p>
+                <p>There are several types of house music. Enjoy it!</p>
             </div>
             
             <div class="music-content">
             
                 <div class="music-item">
-                    <div class="row">
-                        <h2>Classic House</h2>
-            
+                    <div class="row column">
+                        <h2>Classic House<i id="classic-house-play-btn" class="uil uil-play-circle play"></i></h2>
                         <!--<img class="music-img" src="../img/music/cd.gif" alt="music-playing">-->
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe quasi consectetur praesentium voluptas
-                            laborum
-                            illo possimus nam ipsa molestias natus, officiis voluptatum repellat error quo quae doloremque maiores
-                            vitae
-                            minima.</p>
-                        <button class="play-button" id="classic-house-play-btn"><i class="uil uil-play-circle play"></i></button>
-                        <audio id="classic-house-audio" src="../static/audio/Marc Philippe  Dancer in the Dark.mp3"></audio>
+                        <p>Considered the origin of house music, characterized by simple yet addictive rhythms and soothing melodies.</p>
+                        
+                        <audio id="classic-house-audio" src="../static/audio/classic_house.mp3"></audio>
                     </div>
-            
-            
-            
                 </div>
                 <div class="music-item">
-                    <div class="row">
-                        <h2>Modern House</h2>
+                    <div class="row column">
+                        <h2>Deep House<i id="deep-house-play-btn" class="uil uil-play-circle play"></i></h2>
                         <!--<img class="music-img" src="../img/music/cd.gif" alt="music-playing">-->
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo impedit voluptates modi distinctio,
-                            exercitationem
-                            accusantium expedita doloribus omnis maiores, ea dolores enim voluptate totam veritatis. Veniam saepe
-                            ipsa iure
-                            aut.</p>
-                        <button class="play-button" id="modern-house-play-btn"><i class="uil uil-play-circle play"></i></button>
-                        <audio id="modern-house-audio" src="../static/audio/Disclosure x Raye  Waterfall.mp3"></audio>
+                        <p>Deeper and more atmospheric, with a lower BPM (beats per minute), profound melodies, and smooth beats.</p>
+                        <audio id="deep-house-audio" src="../static/audio/deep_house.mp3"></audio>
                     </div>
+                </div>
+                <div class="music-item">
+                    <div class="row column">
+                        <h2>Electro House<i id="electro-house-play-btn" class="uil uil-play-circle play"></i></h2>
             
+                        <!--<img class="music-img" src="../img/music/cd.gif" alt="music-playing">-->
+                        <p>Energetic beats and exciting melodies, often heard at electronic music festivals.</p>
+                        <audio id="electro-house-audio" src="../static/audio/electro_house.mp3"></audio>
+                    </div>
+                </div>
+                <div class="music-item">
+                    <div class="row column">
+                        <h2>Soulful House<i id="soulful-house-play-btn" class="uil uil-play-circle play"></i></h2>
+            
+                        <!--<img class="music-img" src="../img/music/cd.gif" alt="music-playing">-->
+                        <p>Influenced by soul, disco, and R&B, characterized by smooth melodies and female vocals.</p>
+                        <audio id="soulful-house-audio" src="../static/audio/soulful_house.mp3"></audio>
+                    </div>
+                </div>
+                <div class="music-item">
+                    <div class="row column">
+                        <h2>Tropical House<i id="tropical-house-play-btn" class="uil uil-play-circle play"></i></h2>
+            
+                        <!--<img class="music-img" src="../img/music/cd.gif" alt="music-playing">-->
+                        <p>Evokes the atmosphere of tropical locations with refreshing and summery melodies.</p>
+                        <audio id="tropical-house-audio" src="../static/audio/tropical_house.mp3"></audio>
+                    </div>
                 </div>
             </div>
             </div>

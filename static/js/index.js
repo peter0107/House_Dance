@@ -2,16 +2,7 @@
 
 // jQuery as jq
 $(document).ready(function() {
-    // nav toggle
-    /*$(".nav-toggle").click(function(){
-      $(".header .nav").slideToggle();
-    })
-    $(".header .nav_items a").click(function(){
-      
-      if($(window).width() < 768){
-         $(".header .nav_item").slideToggle();
-      }
-    })*/
+   
     $(".nav_item a").on('click', function(event) {
 
       // Make sure this.hash has a value before overriding default behavior
@@ -37,7 +28,7 @@ $(document).ready(function() {
 
 //define variable
 const moveItemInners = document.querySelectorAll(".move-item-inner");
-const play_btns = document.querySelectorAll(".play-button")
+const play_btns = document.querySelectorAll(".play")
 const form_open_btn = document.querySelector("#form-open"),
   home = document.querySelector(".home-section"),
   form_container = document.querySelector(".form_container"),
@@ -45,6 +36,9 @@ const form_open_btn = document.querySelector("#form-open"),
   signup_btn = document.querySelector("#signup"),
   login_btn = document.querySelector("#login"),
   pw_show_hide = document.querySelectorAll(".pw_hide");
+const menu_btn=document.querySelector(".menu_btn");
+const cancel_btn=document.querySelector(".cancel_btn");
+const nav_item=document.querySelector(".nav_item");
 
 //making youtube video
 const tag = document.createElement('script');
@@ -148,10 +142,11 @@ function pauseAudio(audio){
   audio.pause();
 }
 
-//login form
+//login form show or not
 form_open_btn.addEventListener("click",() => home.classList.add("show"))
 form_close_btn.addEventListener("click",() => home.classList.remove("show"))
 
+//password hide or not
 pw_show_hide.forEach((icon) => {
   icon.addEventListener("click", () => {
     let get_pw = icon.parentElement.querySelector("input");
@@ -175,6 +170,19 @@ login_btn.addEventListener("click", (e) => {
   e.preventDefault();
   form_container.classList.remove("active");
 })
+
+//for responsive: sidebar
+menu_btn.onclick=function(){
+  menu_btn.style.opacity="0";
+  menu_btn.style.pointerEvents="none";
+  nav_item.classList.add("active");
+}
+cancel_btn.onclick=function(){
+  menu_btn.style.opacity="1";
+  menu_btn.style.pointerEvents="auto";
+  nav_item.classList.remove("active");
+}
+
 
 
 
